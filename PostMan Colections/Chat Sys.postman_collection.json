@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e4c166d6-b593-4a65-a6e9-6a9882c9dc8a",
+		"_postman_id": "18036220-7043-49ce-acbe-0da043d47ddd",
 		"name": "Chat Sys",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14306499"
 	},
 	"item": [
 		{
@@ -251,7 +252,7 @@
 									"formdata": [
 										{
 											"key": "keyword",
-											"value": "",
+											"value": "messss",
 											"type": "default"
 										}
 									]
@@ -351,34 +352,6 @@
 										"chats",
 										"{{chat_number}}",
 										"messages"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "New Request",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats/10/messages/search?keyword=da",
-									"host": [
-										"{{rails_base_url}}"
-									],
-									"path": [
-										"applications",
-										"{{access_token}}",
-										"chats",
-										"10",
-										"messages",
-										"search"
-									],
-									"query": [
-										{
-											"key": "keyword",
-											"value": "da"
-										}
 									]
 								}
 							},
