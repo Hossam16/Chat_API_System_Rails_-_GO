@@ -1,0 +1,448 @@
+{
+	"info": {
+		"_postman_id": "e4c166d6-b593-4a65-a6e9-6a9882c9dc8a",
+		"name": "Chat Sys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create_Application_rails",
+			"item": [
+				{
+					"name": "Applications",
+					"item": [
+						{
+							"name": "create_new_app",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = JSON.parse(responseBody)\r",
+											"pm.environment.set(\"access_token\", res.access_token);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{rails_base_url}}/applications",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update_app",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test1_updated",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get_app",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get_all_apps",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rails_base_url}}/applications",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Chats",
+					"item": [
+						{
+							"name": "get_chat_of_app",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats/{{chat_number}}",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats",
+										"{{chat_number}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get_all_chats_of_app",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Messages",
+					"item": [
+						{
+							"name": "update_mes_of_chat_of_app",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "body",
+											"value": "some message updated",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats/{{chat_number}}/messages/{{message_number}}",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats",
+										"{{chat_number}}",
+										"messages",
+										"{{message_number}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get_mes_of_chat_of_app",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats/{{chat_number}}/messages/{{message_number}}",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats",
+										"{{chat_number}}",
+										"messages",
+										"{{message_number}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get_all_mes_of_chta_of_app",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats/{{chat_number}}/messages",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats",
+										"{{chat_number}}",
+										"messages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search_mes_of_chat_of_app",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "keyword",
+											"value": "",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats/{{chat_number}}/messages/search",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats",
+										"{{chat_number}}",
+										"messages",
+										"search"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Create_Chat_Message_GoLang",
+			"item": [
+				{
+					"name": "Chats",
+					"item": [
+						{
+							"name": "create_chat_of_app",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = JSON.parse(responseBody)\r",
+											"pm.environment.set(\"chat_number\", res.number);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{go_base_url}}/applications/{{access_token}}/chats",
+									"host": [
+										"{{go_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Messages",
+					"item": [
+						{
+							"name": "create_mes_of_chat_of_app",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = JSON.parse(responseBody)\r",
+											"pm.environment.set(\"message_number\", res.number);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"body\": \"some messages\"\r\n}"
+								},
+								"url": {
+									"raw": "{{go_base_url}}/applications/{{access_token}}/chats/{{chat_number}}/messages",
+									"host": [
+										"{{go_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats",
+										"{{chat_number}}",
+										"messages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rails_base_url}}/applications/{{access_token}}/chats/10/messages/search?keyword=da",
+									"host": [
+										"{{rails_base_url}}"
+									],
+									"path": [
+										"applications",
+										"{{access_token}}",
+										"chats",
+										"10",
+										"messages",
+										"search"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "da"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ElasticSearch_Native",
+			"item": [
+				{
+					"name": "search_mes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "hossam",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "elastic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n          \"bool\": {\r\n      \"filter\": [\r\n        { \"regexp\": { \"body\": \".*da.*\"   }},\r\n        { \"term\": { \"chat_id\": \"10\" }}\r\n      ]\r\n    }\r\n},\r\n    \"_source\": {\r\n    \"includes\": [ \"body\",\"number\" ]\r\n  },\"_source\": false\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:9200/messages/_search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"messages",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
