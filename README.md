@@ -1,10 +1,15 @@
-# chat-api
+# Chat API using Ruby on Rails and Golang with (ElasticSearch,Redis,MySQL)
+
 Chatting API application in Ruby on Rails and Go
 
 ## Overview
 The API is composed of two separate services:
-- Chat API (Rails): Main service which provides most of the core management operations (create, update, get) of applications, chats, and messages, also supports searching through messages in chats using `elasticsearch`.
-- Chat/Message Creation API (Golang): A complementary service to chat API that is responsible for creating chats and messages.
+- Chat API (`Rails`): Main service which provides most of the core management operations 
+(create, update, get) of applications, 
+(get) of chats, 
+and (get, update) messages, using `MySQl` as DB, and `Redis` - `Sidekiq` as (cahce, queue) 
+also supports searching through messages in chats using `ElasticSearch`.
+- Chat/Message Creation API (`Golang`): A complementary service to chat API that is responsible for creating chats and messages.
 
 ## Starting Services
 ```bash
@@ -13,7 +18,7 @@ sudo docker-compose down && sudo docker-compose build && sudo docker-compose up
 Make sure that `docker` and `docker-compose` are installed with `dockerd` running, also make sure that ports `3000` and ports `8080` are available for the services to run on.
 
 ## Using Services
-
+Feel Free to use Postman Colection & Enviroment attached with this repo
 ### Chat API (Rails)
 This service exposes these endpoints for operating on applications, chats and messages.
 
@@ -49,6 +54,59 @@ $ curl -X POST 'http://localhost:3000/applications?name=app'
   "chat_count": 0
 }
 ```
+
+##### Getting applications
+```bash
+$ curl -X GET 'http://localhost:3000/applications'
+
+# output
+{
+  [
+    {
+      "name": "app",
+      "access_token": "fPrv7vr57dkUsP4KfZ4BdSmt",
+      "created_at": "2019-11-11T19:14:51.589Z",
+      "updated_at": "2019-11-11T19:14:51.589Z",
+      "chat_count": 0
+    },
+    {
+      "name": "app2",
+      "access_token": "edxUGBopTJQpBpkeWLbdrccR",
+      "created_at": "2019-11-11T19:14:51.589Z",
+      "updated_at": "2019-11-11T19:14:51.589Z",
+      "chat_count": 0
+    }
+  ]
+}
+```
+
+##### Getting application
+```bash
+$ curl -X GET 'http://localhost:3000/applications/{fPrv7vr57dkUsP4KfZ4BdSmt}'
+
+# output
+{
+   "name": "app",
+   "access_token": "fPrv7vr57dkUsP4KfZ4BdSmt",
+   "created_at": "2019-11-11T19:14:51.589Z",
+   "updated_at": "2019-11-11T19:14:51.589Z",
+   "chat_count": 0
+}
+```
+##### Updating a application
+```bash
+$ curl -X PUT 'http://localhost:3000/applications/fPrv7vr57dkUsP4KfZ4BdSmt?name=app updated'
+
+# output
+{
+  "name": "app updated",
+  "access_token": "fPrv7vr57dkUsP4KfZ4BdSmt",
+  "created_at": "2019-11-11T19:14:51.589Z",
+  "updated_at": "2019-11-11T19:14:51.589Z",
+  "chat_count": 0
+}
+```
+
 
 ##### Getting messages
 ```bash
@@ -140,10 +198,4 @@ $ curl --data '{"body": "Rails stuff"}' -X POST 'http://localhost:8080/applicati
      - Race conditions are handled at the main Rails side using `uniqueness` validations on both chat number and message number.
      
 Used `elasticsearch` to support searching through messages.
-     
-## TODO
-- [ ] Add a `.env` file that contains all the necessary configurations for hosts, ports, passwords, etc. to allow for easier configuration changes, instead of throwing configurations all over the place.
-- [ ] Add unit tests using `Rspec`.
-- [ ] Handle an arbitrary error in the `docker` image where `elasticsearch` throws a Java `ClassCastException` when trying to reindex the messages table, the error
-doesn't occur outside of the `docker` container.
 
