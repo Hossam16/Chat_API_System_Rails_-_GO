@@ -12,6 +12,20 @@ also supports searching through messages in chats using `ElasticSearch`.
 - Chat/Message Creation API (`Golang`): A complementary service to chat API that is responsible for creating chats and messages.
 
 ## Starting Services
+> **Note**
+>
+> Just when cloning this repo care about LF files format not converted to CRLF
+>
+> file list
+>
+>   Chat_API_System_Rails_GO\go-chat-creation-api\entrypoint.sh
+>
+>   Chat_API_System_Rails_GO\go-chat-creation-api\wait-for-it.sh
+>
+>   Chat_API_System_Rails_GO\chat-api\entrypoint.sh
+>
+>   Chat_API_System_Rails_GO\chat-api\wait-for-it.sh
+
 ```bash
 sudo docker-compose down && sudo docker-compose build && sudo docker-compose up
 ```
