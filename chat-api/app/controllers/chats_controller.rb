@@ -10,7 +10,7 @@ class ChatsController < ApplicationController
 
   def show
     @chat = @application.chats.find_by!(number: params[:number]) # TODO: Handle application not found
-    render_json @chats
+    render_json @chat
   end
 
   private

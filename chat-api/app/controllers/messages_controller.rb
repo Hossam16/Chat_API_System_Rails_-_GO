@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
   end
 
   def search
-    render_json  Message.__elasticsearch__.search('{"query": {"bool": {"filter": [{ "regexp": { "body": ".*'+ params[:keyword] +'.*"   }},{ "term": { "chat_id": "10" }}]}},"_source": {"includes": [ "body","number" ]}}')
+    render_json  Message.__elasticsearch__.search('{"query": {"bool": {"filter": [{ "regexp": { "body": ".*'+ params[:keyword] +'.*"   }},{ "term": { "chat_id": "' + (@chat.id).to_s  + '" }}]}},"_source": {"includes": [ "body","number" ]}}')
   end
 
   private
