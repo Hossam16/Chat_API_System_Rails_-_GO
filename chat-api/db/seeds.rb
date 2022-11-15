@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Application.create(name: "Test App 1", access_token: "fPrv7vr57dkUsP4KfZ4BdSm1", chat_count: 0)
+Application.create(name: "Test App 2", access_token: "fPrv7vr57dkUsP4KfZ4BdSm2", chat_count: 0)
+Application.create(name: "Test App 3", access_token: "fPrv7vr57dkUsP4KfZ4BdSm3", chat_count: 0)
+Chat.create(application_id: 2, number: 1, message_count: 0)
+Chat.create(application_id: 2, number: 2, message_count: 0)
+Chat.create(application_id: 2, number: 3, message_count: 0)
+Chat.create(application_id: 3, number: 1, message_count: 0)
+Chat.create(application_id: 3, number: 2, message_count: 0)
+Chat.create(application_id: 3, number: 3, message_count: 0)
+Chat.create(application_id: 3, number: 4, message_count: 0)
+Chat.create(application_id: 3, number: 5, message_count: 0)
+Chat.create(application_id: 3, number: 6, message_count: 0)
+Message.create(chat_id: 1, body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", number: 1)
+Message.create(chat_id: 1, body: "ن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.", number: 2)
+Message.create(chat_id: 1, body: "و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب أليمة أو آخر أراد أن يتجنب الألم الذي ربما تنجم عنه بعض  
+علي الجانب الآخر نشجب ونستنكر هؤلاء الرجال المفتونون بنشوة اللحظة الهائمون في رغباتهم فلا يدركون ما يعقبها من الألم والأسي المحتم، واللوم كذلك يشمل هؤلاء الذين أخفقوا في واجباتهم نتيجة لضعف إرادتهم فيتساوي مع هؤلاء الذين يتجنبون وينأون عن تحمل الكدح والألم", number: 3)
+Message.create(chat_id: 2, body: "و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب أليمة أو آخر أراد أن يتجنب الألم الذي ربما تنجم عنه بعض المتعة ", number: 1)
+Message.create(chat_id: 2, body: "Technically Arabic Lorem Ipsum only exists because designers and web developers needed something to use to fill in empty content spaces in their designs and in development projects they’re working on. To be clear the Arabic version of Lorem Ipsum is not a translation of the latin Lorem Ipsum because in essence the Latin version is not even understood to most English speakers. The Arabic version is just jumbled Arabic text and it only bears a connection with the Latin version in the sense that they are both used as dummy text and the Arabic version owes its name to the origin of lorem ipsum.", number: 2)
+Message.create(chat_id: 3, body: "Arabic is a right to left language instead of a left to right language like English. This means that for Arabic to show up properly on a web page either the complete body of the web page needs to be set to right to left or the section you are using Arabic in should be set to right to left. This can be accomplished with the direction tag within the HTML element that you are manipulating. Here are several examples of what the code looks like at different places within the HTML", number: 1)
+Message.create(chat_id: 4, body: "SOME TEST MESSAGE BLA BLA BLAAA", number: 1)
+Message.create(chat_id: 4, body: "SOME TEST MESSAGE NUMBER 4 BLAAA BLLLAAA BLA BLA BLAAA", number: 2)
+
